@@ -1,0 +1,231 @@
+const transformRequest = (url, resourceType) => {
+  const isMapboxRequest =
+    url.slice(8, 22) === 'api.mapbox.com' ||
+    url.slice(10, 26) === 'tiles.mapbox.com'
+  return {
+    url: isMapboxRequest ? url.replace('?', '?pluginName=sheetMapper&') : url,
+  }
+}
+mapboxgl.accessToken =
+  'pk.eyJ1IjoiaXNyYWVsdG9ycmVzIiwiYSI6ImNrZ3c5YmYzZDA4MHUyem4wYzc3bm1obXMifQ.iRvzqOTZ4XvuKovT8oz_7Q' //Mapbox token
+const map = new mapboxgl.Map({
+  container: 'map', // container id
+  style: 'mapbox://styles/israeltorres/cl758l1qw002814o5dbdpoa19',
+  center: [-97.56988, 37.529768],
+  attributionControl: false,
+  zoom: 4,
+  cooperativeGestures: true,
+  transformRequest: transformRequest,
+})
+const sheetId = '1YkFS-nfWQkg_Id58aXotB7Qy9Yw-kMHNt3FfaAISOZM'
+const sheetGeoid = '1V8Nuo8_H88fsiOLZDZq2Ga4VEamdBfZW4i8UrEBmEfA'
+document.addEventListener('DOMContentLoaded', function () {
+  fetch(
+    `https://docs.google.com/spreadsheets/d/${sheetGeoid}/gviz/tq?tqx=out:csv&sheet=MapData`
+  )
+    .then((response) => response.text())
+    .then((csvData) => {
+      makeGeoJSON(csvData)
+    })
+    .catch((error) => console.log(error))
+
+  function makeGeoJSON(csvData) {
+    csv2geojson.csv2geojson(
+      csvData,
+      {
+        latfield: 'latitude',
+        lonfield: 'longitude',
+        delimiter: ',',
+      },
+      // Add zoom and rotation controls to the map.
+      function (err, data) {
+        map.addControl(new mapboxgl.NavigationControl())
+        //console.log('sheetData', data)
+
+        /* Assign a unique ID to each store */
+        data.features.forEach(function (store, i) {
+          store.properties.id = i
+        })
+
+        let image1 =
+          'https://uploads-ssl.webflow.com/62a918d5906c9b3387503b6a/6303d5536ea1606e02798418_pin_6.png'
+        map.on('load', function () {
+          //---------
+          map.loadImage(image1, (error, image) => {
+            if (error) throw error
+            // add image to the active style and make it SDF-enabled
+            map.addImage('icon-marker', image, { sdf: true })
+            map.addSource('points', {
+              type: 'geojson',
+              data: data,
+            })
+            //---------
+            map.addLayer({
+              id: 'csvData',
+              // type: 'symbol',
+              // source: 'points',
+              type: 'circle',
+              source: {
+                type: 'geojson',
+                data: data,
+              },
+              // layout: {
+              //   'icon-image': 'icon-marker',
+              //   'icon-size': 0.25,
+              // },
+              // paint: {
+              //   'icon-color': [
+              //     'match',
+              //     ['get', 'property_type'],
+              //     'Self Storage',
+              //     '#ee9700',
+              //     'RV Park/Campground',
+              //     '#026fba',
+              //     '#ffffff',
+              //   ],
+              // },
+              paint: {
+                'circle-radius': {
+                  base: 2,
+                  stops: [
+                    [10, 10],
+                    [22, 180],
+                  ],
+                },
+                'circle-color': [
+                  'match',
+                  ['get', 'property_type'],
+                  'Self Storage',
+                  '#ee9700',
+                  'RV Park/Campground',
+                  '#026fba',
+                  '#ffffff',
+                ],
+              },
+            })
+          })
+
+          map.on('click', 'csvData', function (e) {
+            const marker = e.features[0]
+            flyToStore(marker)
+            /* Close all other popups and display popup for clicked store */
+            createPopUp(marker)
+            /* Highlight listing in sidebar */
+            const activeItem = document.getElementsByClassName('active')
+
+            if (activeItem[0]) {
+              activeItem[0].classList.remove('active')
+            }
+            const listing = document.getElementById(
+              `listing-${marker.properties.id}`
+            )
+            listing.classList.add('active')
+          })
+          // Change the cursor to a pointer when the mouse is over the places layer.
+          map.on('mouseenter', 'csvData', function () {
+            map.getCanvas().style.cursor = 'pointer'
+          })
+          // Change it back to a pointer when it leaves.
+          map.on('mouseleave', 'places', function () {
+            map.getCanvas().style.cursor = ''
+          })
+
+          buildLocationList(data)
+        })
+
+        // show location sidebar
+        function buildLocationList(data) {
+          for (const store of data.features) {
+            /* Add a new listing section to the sidebar. */
+            const listings = document.getElementById('listings')
+            const listing = listings.appendChild(document.createElement('div'))
+            /* Add the link to the individual listing created above. */
+            const link = listing.appendChild(document.createElement('a'))
+            /* Add details to the individual listing. */
+            const details = listing.appendChild(document.createElement('div'))
+
+            /* Assign a unique `id` to the listing. */
+            listing.id = `listing-${store.properties.id}`
+            /* Assign the `item` class to each listing for styling. */
+            listing.className = 'item'
+
+            /* Add the link to the individual listing created above. */
+            link.href = '#'
+            link.className = 'title'
+            link.id = `link-${store.properties.id}`
+            link.innerHTML = `${store.properties.property_name}`
+
+            //details.innerHTML = `${store.properties.city}`
+            details.innerHTML = `${store.properties.property_type}`
+
+            link.addEventListener('click', function () {
+              for (const feature of data.features) {
+                if (this.id === `link-${feature.properties.id}`) {
+                  flyToStore(feature)
+                  createPopUp(feature)
+                }
+              }
+              const activeItem = document.getElementsByClassName('active')
+              if (activeItem[0]) {
+                activeItem[0].classList.remove('active')
+              }
+              this.parentNode.classList.add('active')
+            })
+          }
+        }
+
+        /**
+         * Use Mapbox GL JS's `flyTo` to move the camera smoothly
+         * a given center point.
+         **/
+        function flyToStore(currentFeature) {
+          map.flyTo({
+            center: currentFeature.geometry.coordinates,
+            zoom: 10,
+          })
+        }
+
+        function createPopUp(e) {
+          var coordinates = e.geometry.coordinates.slice()
+          var description =
+            `<h3>` +
+            e.properties.property_name +
+            `</h3>` +
+            `<h4>` +
+            `<b>` +
+            `Address: ` +
+            `</b>` +
+            e.properties.address +
+            `</h4>` +
+            `<h4>` +
+            `<a target='_blank' style="color:#ee9700!important; text-decoration:none;" href=` +
+            e.properties.website +
+            `>` +
+            `Visit a Website` +
+            `</a>` +
+            `</h4>` +
+            `<h4>` +
+            `<b>` +
+            `Type Property:` +
+            `</b>` +
+            `<br/>` +
+            e.properties.property_type +
+            `</h4>` +
+            `<h4  >` +
+            `<a target='_blank' style="color:#ee9700!important; text-decoration:none;" href=` +
+            e.properties.link +
+            `>` +
+            `View large map` +
+            `</a>` +
+            `</h4>`
+          const popUps = document.getElementsByClassName('mapboxgl-popup')
+          if (popUps[0]) popUps[0].remove()
+          new mapboxgl.Popup()
+            .setLngLat(coordinates)
+            .setHTML(description)
+            .addTo(map)
+        }
+      }
+    )
+  }
+})
