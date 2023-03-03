@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet'>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css" rel="stylesheet">
+    <title>Document</title>
+
+    <style>
+        * {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box
+        }
+
+        .sidebar {
+            position: absolute;
+            width: 20%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            border-right: 1px solid rgba(0, 0, 0, .25)
+        }
+
+        .mapbox {
+            position: absolute;
+            width: 100%;
+            top: 0;
+            bottom: 0
+        }
+
+        h5 {
+            font-size: 22px;
+            margin: 0;
+            font-weight: 400;
+            line-height: 20px;
+            padding: 20px 2px
+        }
+
+        a {
+            color: #026FBA;
+            text-decoration: none
+        }
+
+        a:hover {
+            color: #0a5fb4
+        }
+
+        .pad2 {
+            padding: 20px;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box
+        }
+
+        .heading {
+            background: #fff;
+            border-bottom: 1px solid #eee;
+            min-height: 60px;
+            line-height: 60px;
+            padding: 0 10px;
+            background-color: #026FBA;
+            color: #fff
+        }
+
+        .listings {
+            height: 100%;
+            overflow: auto;
+            padding-bottom: 60px
+        }
+
+        .listings .item {
+            display: block;
+            border-bottom: 1px solid #eee;
+            padding: 10px;
+            text-decoration: none
+        }
+
+        .listings .item:last-child {
+            border-bottom: none
+        }
+
+        .listings .item .title {
+            display: block;
+            color: black;
+            font-weight: 700
+        }
+
+        .listings .item .title small {
+            font-weight: 400
+        }
+
+        .listings .item .title:hover,
+        .listings .item.active .title {
+            color: #0a5fb4
+        }
+
+        .listings .item.active {
+            background-color: #f8f8f8
+        }
+
+        .clearfix {
+            display: block
+        }
+
+        .clearfix::after {
+            content: '.';
+            display: block;
+            height: 0;
+            clear: both;
+            visibility: hidden
+        }
+
+        .mapboxgl-popup {
+            padding-bottom: 50px
+        }
+
+        .mapboxgl-popup-close-button {
+            display: none;
+        }
+
+        .mapboxgl-popup-content {
+            font: 400 15px/22px 'Source Sans Pro', 'Helvetica Neue', Sans-serif;
+            padding: 0;
+            width: 180px
+        }
+
+        .mapboxgl-popup-content-wrapper {
+            padding: 1%
+        }
+
+        .mapboxgl-popup-content h6 {
+            background: #026FBA;
+            color: white;
+            margin-bottom: 10px;
+            display: block;
+            padding: 10px;
+            border-radius: 3px 3px 0 0;
+            font-weight: 700;
+            margin-top: -15px
+        }
+
+        .mapboxgl-popup-content p {
+            margin: 0;
+            display: block;
+            padding: 0px 10px 0px 10px;
+            font-weight: 400;
+            line-height: 100%
+        }
+
+        .mapboxgl-popup-content a {
+            margin: 0;
+            display: block;
+            padding: 10px 10px 10px 10px;
+            font-weight: 400;
+            color: #0a5fb4
+        }
+
+        .mapboxgl-popup-content div {
+            padding: 10px
+        }
+
+        .mapboxgl-container .leaflet-marker-icon {
+            cursor: pointer
+        }
+
+        .mapboxgl-popup-anchor-top>.mapboxgl-popup-content {
+            margin-top: 15px
+        }
+
+        .mapboxgl-popup-anchor-top>.mapboxgl-popup-tip {
+            border-bottom-color: #026FBA
+        }
+
+        .marker {
+            border: none;
+            cursor: pointer;
+            height: 20px;
+            width: 20px;
+            background-color: rgba(0, 0, 0, 0);
+            background-repeat: no-repeat;
+            background-position: center, center;
+            background-size: contain;
+        }
+
+        .mapboxgl-ctrl-bottom-left {
+            bottom: 0;
+            display: none;
+            left: 0;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id='mapbox' class='mapbox pad2'>Map</div>
+    <script src="/regularMap/map.txt"></script>
+</body>
+
+</html>
