@@ -17,8 +17,8 @@ const map = new mapboxgl.Map({
   cooperativeGestures: true,
   transformRequest: transformRequest,
 })
-const sheetId = '1YkFS-nfWQkg_Id58aXotB7Qy9Yw-kMHNt3FfaAISOZM'
-const sheetGeoid = '1V8Nuo8_H88fsiOLZDZq2Ga4VEamdBfZW4i8UrEBmEfA'
+//const sheetId = '1YkFS-nfWQkg_Id58aXotB7Qy9Yw-kMHNt3FfaAISOZM'
+const sheetGeoid = '1KpDR7sjnuoHck0doFsv8RjTDuK1snSth_oqFKNh0gdo' //'1V8Nuo8_H88fsiOLZDZq2Ga4VEamdBfZW4i8UrEBmEfA'
 document.addEventListener('DOMContentLoaded', function () {
   fetch(
     `https://docs.google.com/spreadsheets/d/${sheetGeoid}/gviz/tq?tqx=out:csv&sheet=MapData`
@@ -188,30 +188,30 @@ document.addEventListener('DOMContentLoaded', function () {
         function createPopUp(e) {
           var coordinates = e.geometry.coordinates.slice()
           var description =
-            `<h3>` +
+            `<h3 class="mapboxgl-popup-content">` +
             e.properties.property_name +
             `</h3>` +
-            `<h4>` +
+            `<h4 class="mapboxgl-popup-content">` +
             `<b>` +
             `Address: ` +
             `</b>` +
             e.properties.address +
-            `</h4>` +
+            `<h4 class="mapboxgl-popup-content">` +
             `<h4>` +
             `<a target='_blank' style="color:#ee9700!important; text-decoration:none;" href=` +
             e.properties.website +
             `>` +
-            `Visit a Website` +
+            `Visit Website` +
             `</a>` +
             `</h4>` +
-            `<h4>` +
+            `<h4 class="mapboxgl-popup-content">` +
             `<b>` +
             `Type Property:` +
             `</b>` +
             `<br/>` +
             e.properties.property_type +
             `</h4>` +
-            `<h4  >` +
+            `<h4 class="mapboxgl-popup-content">` +
             `<a target='_blank' style="color:#ee9700!important; text-decoration:none;" href=` +
             e.properties.link +
             `>` +
