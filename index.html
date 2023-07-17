@@ -8,7 +8,7 @@
   <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js"></script>
   <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css" rel="stylesheet" />
   <script src='https://npmcdn.com/csv2geojson@latest/csv2geojson.js'></script>
-  <script src='https://npmcdn.com/@turf/turf/turf.min.js'></script>
+  <!-- <script src='https://npmcdn.com/@turf/turf/turf.min.js'></script> -->
 
   <style>
     body {
@@ -26,29 +26,29 @@
     .container_property {
       padding: 20px 0px 20px 20px;
       width: 100%;
-      height: 100%;
+      height: auto;
       display: flex;
       flex-wrap: wrap;
-      /* max-width: fit-content; */
       overflow: scroll;
+      min-height: 200px;
       max-height: 600px;
+      background-color: #ffffff;
     }
 
     .sidebar {
       position: absolute;
-      width: 20%;
+      width: 25%;
       height: 100%;
       top: 0;
       left: 0;
       overflow: hidden;
-      border-right: 1px solid rgba(0, 0, 0, 0.25);
-      padding-bottom: 40px;
+      background-color: #ffffff;
     }
 
     .map {
       position: absolute;
-      /* left: 20%; */
-      width: 100%;
+      left: 25%;
+      width: 75%;
       top: 0;
       bottom: 0;
     }
@@ -65,9 +65,6 @@
       font-size: 18px;
       margin: 0;
       font-weight: 700;
-      ;
-      /* line-height: 20px;
-      padding: 20px 2px; */
     }
 
     a {
@@ -89,46 +86,10 @@
       color: #fff;
     }
 
-    .listings {
-      height: 100%;
-      overflow: auto;
-      width: 100%;
-    }
-
-    .listings .item {
-      display: block;
-      margin-bottom: 10px;
-      text-decoration: none;
-    }
-
-    .listings .item:last-child {
-      border-bottom: none;
-    }
-
-    .listings .item .title {
-      display: block;
-      color: #026fba;
-      font-weight: 500;
-    }
-
-    .listings .item .title small {
-      font-weight: 400;
-    }
-
-    .listings .item.active .title,
-    .listings .item .title:hover {
-      color: #ee9700;
-    }
-
-    .listings .item.active {
-      background-color: #f8f8f8;
-    }
-
     ::-webkit-scrollbar {
       width: 3px;
       height: 3px;
       border-left: 0;
-      background: rgba(0, 0, 0, 0.1);
     }
 
     ::-webkit-scrollbar-track {
@@ -140,8 +101,6 @@
       border-radius: 0;
     }
 
-    /* Marker tweaks */
-    /* Popup styling */
     .mapboxgl-popup {
       padding-bottom: 50px;
     }
@@ -186,29 +145,99 @@
       margin-top: 3px;
     }
 
+    .label_propertyType {
+      font-size: 1.125rem;
+      font-weight: 300;
+    }
+
     .mapboxgl-popup-anchor-top>.mapboxgl-popup-tip {
       border-bottom-color: #026fba;
     }
 
+    .mapboxgl-marker {
+      border: 2px solid white;
+      border-radius: 50%;
+      width: 12px;
+      height: 12px;
+      margin-top: -6px;
+      margin-left: -6px;
+    }
 
-    ul {
-      padding-left: 10px;
+    #propertyTypeFilter {
+      padding: 20px;
+    }
+
+    .mobile-visible {
+      display: none;
+    }
+
+    .sidebar.show-sidebar {
+      display: block !important;
+    }
+
+    @media screen and (max-width: 768px) {
+      .mobile-hidden {
+        display: none;
+      }
+
+      .map {
+        width: 100%;
+        left: 0%;
+      }
+
+      #propertyTypeFilter {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        padding: 20px;
+        box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        z-index: 9999;
+        border-top: 10px solid #1f88d0;
+      }
+
+      .mobile-visible {
+        display: block;
+        position: absolute;
+        z-index: 9;
+        padding: 10px;
+        background-color: #1f88d0;
+        font-size: 24px;
+        border: none;
+        width: 45px;
+        top: 5%;
+        left: 5%;
+        color: white;
+      }
+
+      .mobile-visible:hover {
+        background-color: #fa5252;
+      }
+
     }
   </style>
-
 </head>
 
 <body>
-  <!-- <div class='sidebar'>
+  <button id="toggleSidebarButton" class="mobile-visible">X</button>
+
+  <div class='sidebar mobile-hidden'>
     <div class='heading'>
       <h1>Our Properties</h1>
     </div>
-    <div id="container_property" class="container_property">
-
-      <div id='listings' class='listings'></div>
+    <div id="propertyTypeFilter">
+      <input type="checkbox" id="propertyType1" value="RV Park/Campground" checked />
+      <label for="propertyType1">RV Park/Campground</label>
+      <br />
+      <input type="checkbox" id="propertyType2" value="Self Storage" checked />
+      <label for="propertyType2">Self Storage</label>
     </div>
-  </div> -->
+
+  </div>
+
   <div id="map" class="map"></div>
+
   <script src='sourceScript.txt'></script>
 
 </body>
