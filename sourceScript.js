@@ -988,4 +988,65 @@ map.on('load', function () {
     },
   })
 })
+map.on('click', 'locations', function (e) {
+  const marker = e.features[0]
+  flyToStore(marker)
+  createPopUp(marker)
+  const activeItem = document.getElementsByClassName('active')
 
+  if (activeItem[0]) {
+    activeItem[0].classList.remove('active')
+  }
+})
+map.on('mouseenter', 'locations', function () {
+  map.getCanvas().style.cursor = 'pointer'
+})
+map.on('mouseleave', 'places', function () {
+  map.getCanvas().style.cursor = ''
+})
+
+function flyToStore(currentFeature) {
+  map.flyTo({
+    center: currentFeature.geometry.coordinates,
+    zoom: 6,
+  })
+}
+
+function createPopUp(e) {
+  let popUps = document.getElementsByClassName('mapboxgl-popup')
+  if (popUps[0]) popUps[0].remove()
+  new mapboxgl.Popup({ closeOnClick: true })
+    .setLngLat(e.geometry.coordinates)
+    .setHTML(
+      '<h3 class="mapboxgl-popup-content">' +
+        e.properties.name +
+        '</h3>' +
+        '<h4 class="mapboxgl-popup-content">' +
+        '<b>' +
+        'Address: ' +
+        '</b>' +
+        e.properties.address +
+        '<h4 class="mapboxgl-popup-content">' +
+        '<a target="_blank" style="color:#ee9700!important; text-decoration:none;" href=' +
+        e.properties.website +
+        '>' +
+        'Visit Website' +
+        '</a>' +
+        '</h4>' +
+        '<h4 class="mapboxgl-popup-content">' +
+        '<b>' +
+        'Type Property:' +
+        '</b>' +
+        '<br/>' +
+        e.properties.property_type +
+        '</h4>' +
+        '<h4 class="mapboxgl-popup-content">' +
+        '<a target="_blank" style="color:#ee9700!important; text-decoration:none;" href=' +
+        e.properties.link +
+        '>' +
+        'View large map' +
+        '</a>' +
+        '</h4>'
+    )
+    .addTo(map)
+}
