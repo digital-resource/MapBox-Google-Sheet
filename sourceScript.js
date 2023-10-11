@@ -1,15 +1,25 @@
+console.log = function () {}
+console.error = function () {}
+if (!('remove' in Element.prototype)) {
+  Element.prototype.remove = function () {
+    if (this.parentNode) {
+      this.parentNode.removeChild(this)
+    }
+  }
+}
 mapboxgl.accessToken =
   'pk.eyJ1IjoiaXNyYWVsdG9ycmVzIiwiYSI6ImNrZ3c5YmYzZDA4MHUyem4wYzc3bm1obXMifQ.iRvzqOTZ4XvuKovT8oz_7Q'
+
 const map = new mapboxgl.Map({
-  container: 'map',
-  
+  container: 'mapbox',
   style: 'mapbox://styles/israeltorres/clid4suad002v01qpeper8peb',
-  center: [-90.000,38.000],
+  center: [-87.74825, 42.01385],
   attributionControl: false,
   zoom: 4,
   cooperativeGestures: true,
 })
-const stores = {
+
+var stores = {
   type: 'FeatureCollection',
   features: [
     {
@@ -896,356 +906,86 @@ const stores = {
     },
   ],
 }
+const propertyTypeFilterSelect = document.getElementById('propertyTypeFilter')
 
-// Add zoom and rotation controls to the map.
-map.addControl(new mapboxgl.NavigationControl())
-map.on('style.load', function () {
-  // Add markers to the map.
-  for (const marker of stores.features) {
-    // Create a DOM element for each marker.
-    const el = document.createElement('div')
-    const pin = marker.properties.markerImage
-    el.className = 'marker'
-    el.style.backgroundImage = `url(${pin})`
-    // Add markers to the map.
-    // new mapboxgl.Marker(el).setLngLat(marker.geometry.coordinates).addTo(map)
-    el.addEventListener('click', (e) => {
-      flyToStore(marker)
-      createPopUp(marker)
-      e.stopPropagation()
-    })
-  }
+function updateMarkers(selectedType) {
+  const filteredFeatures = stores.features.filter((feature) => {
+    if (selectedType === 'All') {
+      return true
+    }
+    return feature.properties.property_type === selectedType
+  })
+
+  map.getSource('locations').setData({
+    type: 'FeatureCollection',
+    features: filteredFeatures,
+  })
+}
+
+propertyTypeFilterSelect.addEventListener('change', (event) => {
+  const selectedType = event.target.value
+  updateMarkers(selectedType)
+})
+
+map.on('load', function () {
   map.loadImage(
-    'https://uploads-ssl.webflow.com/62a918d5906c9b3387503b6a/6303bbeccdb661098652ce9f_pin_9.png',
-    function (error, image1) {
+    'https://uploads-ssl.webflow.com/62a918d5906c9b3387503b6a/6303d5542a25834f9af59ed5_pin_11.png',
+    function (error, image) {
       if (error) throw error
       map.loadImage(
-        'https://uploads-ssl.webflow.com/62a918d5906c9b3387503b6a/6303d5542a25834f9af59ed5_pin_11.png',
-        function (error, image2) {
+        'https://uploads-ssl.webflow.com/62a918d5906c9b3387503b6a/6303bbeccdb661098652ce9f_pin_9.png',
+
+        function (error, image1) {
           if (error) throw error
-          map.addImage('image1', image1)
-          map.addImage('image2', image2)
-          
-            map.addLayer({
-              id: 'store-locations',
-              type: 'symbol',
-              source: {
-                type: 'geojson',
-                data: stores,
-              },
-              layout: {
-                'icon-image': [
-                  'match',
-                  ['get', 'property_type'],
-                  'Self Storage',
-                  'image1',
-                  'RV Park/Campground',
-                  'image2',
-                  'default-image',
-                ],
-                'icon-size': 0.2,
-              },
-            });
-       
-          // map.addLayer({
-          //   id: 'store-locations',
-          //   type: 'symbol',
-          //   source: {
-          //     type: 'geojson',
-          //     data: stores,
-          //   },
-          //   layout: {
-          //     'icon-image': [
-          //       'match',
-          //       ['get', 'property_type'],
-          //       'Self Storage',
-          //       'image1',
-          //       'RV Park/Campground',
-          //       'image2',
-          //       'default-image',
-          //     ],
-          //     'icon-size': 0.2,
-          //   },
-          // })
-        
+
+          map.addImage('custom-marker', image)
+          map.addImage('custom-marker1', image1)
+
+          map.addLayer({
+            id: 'locations',
+            type: 'symbol',
+            source: 'locations',
+            layout: {
+              'icon-image': [
+                'match',
+                ['get', 'property_type'],
+                'Self Storage',
+                'custom-marker1',
+                'RV Park/Campground',
+                'custom-marker',
+                'default-image',
+              ],
+              'icon-allow-overlap': true,
+              'icon-size': 0.2,
+            },
+          })
         }
       )
     }
   )
-})
 
-const toggleSidebarButton = document.getElementById('toggleSidebarButton')
-function toggleSidebar() {
-  const sidebar = document.querySelector('.sidebar')
-  sidebar.classList.toggle('show-sidebar')
-}
-toggleSidebarButton.addEventListener('click', toggleSidebar)
-const propertyTypeFilter = document.getElementById('propertyTypeFilter')
-propertyTypeFilter.addEventListener('change', updateMapVisibility)
-
-function updateMapVisibility() {
-  const checkboxes = propertyTypeFilter.getElementsByTagName('input')
-  const selectedPropertyTypes = []
-
-  for (const checkbox of checkboxes) {
-    if (checkbox.checked) {
-      selectedPropertyTypes.push(checkbox.value)
-    }
-  }
-
-  map.setFilter('store-locations', [
-    'in',
-    'property_type',
-    ...selectedPropertyTypes,
-  ])
-}
-map.on('click', 'store-locations', function (e) {
-  const marker = e.features[0]
-  flyToStore(marker)
-  createPopUp(marker)
-  const activeItem = document.getElementsByClassName('active')
-
-  if (activeItem[0]) {
-    activeItem[0].classList.remove('active')
-  }
-})
-map.on('mouseenter', 'store-locations', function () {
-  map.getCanvas().style.cursor = 'pointer'
-})
-map.on('mouseleave', 'places', function () {
-  map.getCanvas().style.cursor = ''
-})
-
-function flyToStore(currentFeature) {
-  map.flyTo({
-    center: currentFeature.geometry.coordinates,
-    zoom: 6,
+  map.addSource('locations', {
+    type: 'geojson',
+    data: stores,
   })
-}
 
-function createPopUp(e) {
-  let popUps = document.getElementsByClassName('mapboxgl-popup')
-  if (popUps[0]) popUps[0].remove()
-  new mapboxgl.Popup({ closeOnClick: true })
-    .setLngLat(e.geometry.coordinates)
-    .setHTML(
-      '<h3 class="mapboxgl-popup-content">' +
-        e.properties.name +
-        '</h3>' +
-        '<h4 class="mapboxgl-popup-content">' +
-        '<b>' +
-        'Address: ' +
-        '</b>' +
-        e.properties.address +
-        '<h4 class="mapboxgl-popup-content">' +
-        '<a target="_blank" style="color:#ee9700!important; text-decoration:none;" href=' +
-        e.properties.website +
-        '>' +
-        'Visit Website' +
-        '</a>' +
-        '</h4>' +
-        '<h4 class="mapboxgl-popup-content">' +
-        '<b>' +
-        'Type Property:' +
-        '</b>' +
-        '<br/>' +
-        e.properties.property_type +
-        '</h4>' +
-        '<h4 class="mapboxgl-popup-content">' +
-        '<a target="_blank" style="color:#ee9700!important; text-decoration:none;" href=' +
-        e.properties.link +
-        '>' +
-        'View large map' +
-        '</a>' +
-        '</h4>'
-    )
-    .addTo(map)
-}
+  map.addLayer({
+    id: 'locations',
+    type: 'symbol',
+    source: 'locations',
+    layout: {
+      'icon-image': [
+        'match',
+        ['get', 'property_type'],
+        'Self Storage',
+        'custom-marker1',
+        'RV Park/Campground',
+        'custom-marker',
+        'default-image',
+      ],
+      'icon-allow-overlap': true,
+      'icon-size': 0.2,
+    },
+  })
+})
 
-
-// const transformRequest = (url, resourceType) => {
-//   const isMapboxRequest =
-//     url.slice(8, 22) === 'api.mapbox.com' ||
-//     url.slice(10, 26) === 'tiles.mapbox.com'
-//   return {
-//     url: isMapboxRequest ? url.replace('?', '?pluginName=sheetMapper&') : url,
-//   }
-// }
-// mapboxgl.accessToken =
-//   'pk.eyJ1IjoiaXNyYWVsdG9ycmVzIiwiYSI6ImNrZ3c5YmYzZDA4MHUyem4wYzc3bm1obXMifQ.iRvzqOTZ4XvuKovT8oz_7Q'
-// const map = new mapboxgl.Map({
-//   container: 'map',
-//   style: 'mapbox://styles/israeltorres/clid4suad002v01qpeper8peb',
-//   center: [-97.56988, 37.529768],
-//   attributionControl: false,
-//   zoom: 4,
-//   cooperativeGestures: true,
-//   transformRequest: transformRequest,
-// })
-// const sheetGeoid = '1V8Nuo8_H88fsiOLZDZq2Ga4VEamdBfZW4i8UrEBmEfA'
-// document.addEventListener('DOMContentLoaded', function () {
-//   fetch(
-//     `https://docs.google.com/spreadsheets/d/${sheetGeoid}/gviz/tq?tqx=out:csv&sheet=MapData`
-//   )
-//     .then((response) => response.text())
-//     .then((csvData) => {
-//       makeGeoJSON(csvData)
-//     })
-//     .catch((error) => console.log(error))
-//   function makeGeoJSON(csvData) {
-//     csv2geojson.csv2geojson(
-//       csvData,
-//       {
-//         latfield: 'latitude',
-//         lonfield: 'longitude',
-//         delimiter: ',',
-//       },
-//       // Add zoom and rotation controls to the map.
-//       function (err, data) {
-//         map.addControl(new mapboxgl.NavigationControl())
-//         /* Assign a unique ID to each store */
-//         data.features.forEach(function (store, i) {
-//           store.properties.id = i
-//         })
-
-//         let image =
-//           'https://uploads-ssl.webflow.com/62a918d5906c9b3387503b6a/6303d5536ea1606e02798418_pin_6.png'
-//         map.on('load', function () {
-//           //---------
-//           map.loadImage(image, (error, image) => {
-//             if (error) throw error
-//             // add image to the active style and make it SDF-enabled
-//             map.addImage('icon-marker', image, { sdf: true })
-//             map.addSource('points', {
-//               type: 'geojson',
-//               data: data,
-//             })
-//             //---------
-//             map.addLayer({
-//               id: 'csvData',
-//               type: 'circle',
-//               source: {
-//                 type: 'geojson',
-//                 data: data,
-//               },
-//               paint: {
-//                 'circle-radius': {
-//                   base: 2,
-//                   stops: [
-//                     [10, 10],
-//                     [22, 180],
-//                   ],
-//                 },
-//                 'circle-color': [
-//                   'match',
-//                   ['get', 'property_type'],
-//                   'Self Storage',
-//                   '#1f88d0',
-//                   'RV Park/Campground',
-//                   '#fa5252',
-//                   '#ffffff',
-//                 ],
-//               },
-//             })
-//           })
-
-//         //show location sidebar
-//         const toggleSidebarButton = document.getElementById(
-//           'toggleSidebarButton'
-//         )
-//         function toggleSidebar() {
-//           const sidebar = document.querySelector('.sidebar')
-//           sidebar.classList.toggle('show-sidebar')
-//         }
-//         toggleSidebarButton.addEventListener('click', toggleSidebar)
-//         const propertyTypeFilter = document.getElementById('propertyTypeFilter')
-//         propertyTypeFilter.addEventListener('change', updateMapVisibility)
-
-//         function updateMapVisibility() {
-//           const checkboxes = propertyTypeFilter.getElementsByTagName('input')
-//           const selectedPropertyTypes = []
-
-//           for (const checkbox of checkboxes) {
-//             if (checkbox.checked) {
-//               selectedPropertyTypes.push(checkbox.value)
-//             }
-//           }          
-         
-//           map.setFilter('csvData', [
-//             'in',
-//             'property_type',
-//             ...selectedPropertyTypes,
-//           ])
-//         }
-//           map.on('click', 'csvData', function (e) {
-//             const marker = e.features[0]
-//             flyToStore(marker)
-//             /* Close all other popups and display popup for clicked store */
-//             createPopUp(marker)
-//             /* Highlight listing in sidebar */
-//             const activeItem = document.getElementsByClassName('active')
-
-//             if (activeItem[0]) {
-//               activeItem[0].classList.remove('active')
-//             }
-//           })
-//           //Change the cursor to a pointer when the mouse is over the places layer.
-//           map.on('mouseenter', 'csvData', function () {
-//             map.getCanvas().style.cursor = 'pointer'
-//           })
-//           // Change it back to a pointer when it leaves.
-//           map.on('mouseleave', 'places', function () {
-//             map.getCanvas().style.cursor = ''
-//           })
-//         })
-       
-//         function flyToStore(currentFeature) {
-//           map.flyTo({
-//             center: currentFeature.geometry.coordinates,
-//             zoom: 5,
-//           })
-//         }
-
-//         function createPopUp(e) {
-//           let coordinates = e.geometry.coordinates.slice()
-//           let description =
-//             `<h3 class="mapboxgl-popup-content">` +
-//             e.properties.property_name +
-//             `</h3>` +
-//             `<h4 class="mapboxgl-popup-content">` +
-//             `<b>` +
-//             `Address: ` +
-//             `</b>` +
-//             e.properties.address +
-//             `<h4 class="mapboxgl-popup-content">` +
-//             `<a target='_blank' style="color:#ee9700!important; text-decoration:none;" href=` +
-//             e.properties.website +
-//             `>` +
-//             `Visit Website` +
-//             `</a>` +
-//             `</h4>` +
-//             `<h4 class="mapboxgl-popup-content">` +
-//             `<b>` +
-//             `Type Property:` +
-//             `</b>` +
-//             `<br/>` +
-//             e.properties.property_type +
-//             `</h4>` +
-//             `<h4 class="mapboxgl-popup-content">` +
-//             `<a target='_blank' style="color:#ee9700!important; text-decoration:none;" href=` +
-//             e.properties.link +
-//             `>` +
-//             `View large map` +
-//             `</a>` +
-//             `</h4>`
-//           const popUps = document.getElementsByClassName('mapboxgl-popup')
-//           if (popUps[0]) popUps[0].remove()
-//           new mapboxgl.Popup()
-//             .setLngLat(coordinates)
-//             .setHTML(description)
-//             .addTo(map)
-//         }
-//       }
-//     )
-//   }
-// })
