@@ -8,239 +8,6 @@
   <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js"></script>
   <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css" rel="stylesheet" />
   <script src='https://npmcdn.com/csv2geojson@latest/csv2geojson.js'></script>
-  <!-- <script src='https://npmcdn.com/@turf/turf/turf.min.js'></script> -->
-
-  <!-- <style>
-    body {
-      color: #404040;
-      font: 400 15px/22px 'Source Sans Pro', 'Helvetica Neue', sans-serif;
-      margin: 0;
-      padding: 0;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    .container_property {
-      padding: 20px 0px 20px 20px;
-      width: 100%;
-      height: auto;
-      display: flex;
-      flex-wrap: wrap;
-      overflow: scroll;
-      min-height: 200px;
-      max-height: 600px;
-      background-color: #ffffff;
-    }
-
-    .sidebar {
-      position: absolute;
-      width: 25%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      overflow: hidden;
-      background-color: #ffffff;
-    }
-
-    .map {
-      position: absolute;
-      left: 25%;
-      width: 75%;
-      top: 0;
-      bottom: 0;
-    }
-
-    h1 {
-      font-size: 22px;
-      margin: 0;
-      font-weight: 700;
-      line-height: 20px;
-      padding: 20px 2px;
-    }
-
-    h2 {
-      font-size: 18px;
-      margin: 0;
-      font-weight: 700;
-    }
-
-    a {
-      color: #404040;
-      text-decoration: none;
-    }
-
-    a:hover {
-      color: #101010;
-    }
-
-    .heading {
-      background: #fff;
-      border-bottom: 1px solid #eee;
-      min-height: 60px;
-      line-height: 60px;
-      padding: 10px 20px;
-      background-color: #026fba;
-      color: #fff;
-    }
-
-    ::-webkit-scrollbar {
-      width: 3px;
-      height: 3px;
-      border-left: 0;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: none;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: #026fba;
-      border-radius: 0;
-    }
-
-    .mapboxgl-popup {
-      padding-bottom: 50px;
-    }
-
-    .mapboxgl-popup-close-button {
-      display: none;
-    }
-
-    .mapboxgl-popup-content {
-      font: 400 15px/22px 'Source Sans Pro', 'Helvetica Neue', Sans-serif;
-      padding: 0;
-      width: 250px;
-    }
-
-    .mapboxgl-popup-content-wrapper {
-      padding: 1%;
-    }
-
-    .mapboxgl-popup-content h3 {
-      background: #026FBA;
-      text-align: center;
-      color: #fff;
-      margin: 0;
-      display: block;
-      padding: 15px;
-      font-weight: 600;
-      margin-top: -5px;
-    }
-
-    .mapboxgl-popup-content h4 {
-      margin: 0;
-      display: block;
-      padding: 10px 3px 10px 10px;
-      font-weight: 400;
-    }
-
-    .mapboxgl-container {
-      cursor: pointer;
-    }
-
-    .mapboxgl-popup-anchor-top>.mapboxgl-popup-content {
-      margin-top: 3px;
-    }
-
-    .label_propertyType {
-      font-size: 1.125rem;
-      font-weight: 300;
-    }
-
-    .mapboxgl-popup-anchor-top>.mapboxgl-popup-tip {
-      border-bottom-color: #026fba;
-    }
-
-    .mapboxgl-marker {
-      border: 2px solid white;
-      border-radius: 50%;
-      width: 12px;
-      height: 12px;
-      margin-top: -6px;
-      margin-left: -6px;
-    }
-
-    #propertyTypeFilter {
-      padding: 20px;
-    }
-
-    .mobile-visible {
-      display: none;
-    }
-
-    .sidebar.show-sidebar {
-      display: block !important;
-    }
-
-    @media screen and (max-width: 768px) {
-      .mobile-hidden {
-        display: none;
-      }
-
-      .map {
-        width: 100%;
-        left: 0%;
-      }
-
-      #propertyTypeFilter {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        background-color: #fff;
-        padding: 20px;
-        box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
-        z-index: 9999;
-        border-top: 10px solid #1f88d0;
-      }
-
-      .mobile-visible {
-        display: block;
-        position: absolute;
-        z-index: 9;
-        padding: 10px;
-        background-color: #1f88d0;
-        font-size: 24px;
-        border: none;
-        width: 45px;
-        top: 5%;
-        left: 5%;
-        color: white;
-      }
-
-      .mobile-visible:hover {
-        background-color: #fa5252;
-      }
-
-    }
-  </style>
-</head>
-
-<body>
-  <button id="toggleSidebarButton" class="mobile-visible">X</button>
-
-  <div class='sidebar mobile-hidden'>
-    <div class='heading'>
-      <h1>Our Properties</h1>
-    </div>
-    <div id="propertyTypeFilter">
-      <input type="checkbox" id="propertyType1" value="RV Park/Campground" checked />
-      <label for="propertyType1">RV Park/Campground</label>
-      <br />
-      <input type="checkbox" id="propertyType2" value="Self Storage" checked />
-      <label for="propertyType2">Self Storage</label>
-    </div>
-
-  </div>
-
-  <div id="map" class="map"></div>
-
-  <script src='sourceScript.js'></script>
-
-</body> -->
 
   <style>
     body {
@@ -277,7 +44,7 @@
       background-color: #ffffff;
     }
 
-    .map {
+    .mapbox {
       position: absolute;
       left: 25%;
       width: 75%;
@@ -470,23 +237,30 @@
     <div display="flex">
 
     </div>
+
     <div id="propertyTypeFilter">
-      <div display="flex" style="margin-bottom:20px;">
-        <input type="checkbox" id="propertyType1" value="RV Park/Campground" checked />
+      <div style="margin-bottom:20px;">
+        <input type="radio" id="propertyType1" name="propertyType" value="All" checked />
+        <label for="propertyType1">All</label>
+      </div>
+      <div style="margin-bottom:20px;">
+        <input type="radio" id="propertyType2" name="propertyType" value="RV Park/Campground" />
         <image src="https://uploads-ssl.webflow.com/62a918d5906c9b3387503b6a/6303d5542a25834f9af59ed5_pin_11.png"
           width="20px" />
-        <label for="propertyType1">RV Park/Campground</label>
+        <label for="propertyType2">RV Park/Campground</label>
       </div>
-      <div display="flex">
-        <input type="checkbox" id="propertyType2" value="Self Storage" checked />
+      <div>
+        <input type="radio" id="propertyType3" name="propertyType" value="Self Storage" />
         <image src="https://uploads-ssl.webflow.com/62a918d5906c9b3387503b6a/6303bbeccdb661098652ce9f_pin_9.png"
           width="20px" />
-        <label for="propertyType2"> Self Storage</label>
+        <label for="propertyType3">Self Storage</label>
       </div>
     </div>
+
+
   </div>
 
-  <div id="map" class="map"></div>
+  <div id="mapbox" class="mapbox"></div>
   <script src='sourceScript.js'></script>
 </body>
 
