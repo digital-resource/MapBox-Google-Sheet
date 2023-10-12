@@ -964,7 +964,7 @@ map.on('load', function () {
                 'default-image',
               ],
               'icon-allow-overlap': true,
-              'icon-size': 0.2,
+              'icon-size': 0.25,
             },
           })
           updateMarkers('RV Park/Campground')
@@ -993,7 +993,7 @@ map.on('load', function () {
         'default-image',
       ],
       'icon-allow-overlap': true,
-      'icon-size': 0.2,
+      'icon-size': 0.25,
     },
   })
 })
