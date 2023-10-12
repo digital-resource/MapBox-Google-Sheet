@@ -967,7 +967,7 @@ map.on('load', function () {
               'icon-size': 0.25,
             },
           })
-          updateMarkers('RV Park/Campground')
+          updateMarkers('Self Storage')
         }
       )
     }
