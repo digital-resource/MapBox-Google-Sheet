@@ -19,7 +19,7 @@ const map = new mapboxgl.Map({
   cooperativeGestures: true,
 })
 
-var stores = {
+const stores = {
   type: 'FeatureCollection',
   features: [
     {
@@ -927,6 +927,14 @@ propertyTypeFilterSelect.addEventListener('change', (event) => {
   updateMarkers(selectedType)
 })
 
+const toggleSidebarButton = document.getElementById('toggleSidebarButton')
+function toggleSidebar() {
+  const sidebar = document.querySelector('.sidebar')
+  sidebar.classList.toggle('show-sidebar')
+}
+toggleSidebarButton.addEventListener('click', toggleSidebar)
+const propertyTypeFilter = document.getElementById('propertyTypeFilter')
+
 map.on('load', function () {
   map.loadImage(
     'https://uploads-ssl.webflow.com/62a918d5906c9b3387503b6a/6303d5542a25834f9af59ed5_pin_11.png',
@@ -959,6 +967,7 @@ map.on('load', function () {
               'icon-size': 0.2,
             },
           })
+          updateMarkers('RV Park/Campground')
         }
       )
     }
@@ -988,6 +997,7 @@ map.on('load', function () {
     },
   })
 })
+
 map.on('click', 'locations', function (e) {
   const marker = e.features[0]
   flyToStore(marker)
