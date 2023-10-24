@@ -13,7 +13,7 @@ mapboxgl.accessToken =
 const map = new mapboxgl.Map({
   container: 'mapbox',
   style: 'mapbox://styles/israeltorres/clid4suad002v01qpeper8peb',
-  center: [-90.74825, 35.01385],
+  center: [-91.74825, 31.01385],
   attributionControl: false,
   zoom: 3,
   cooperativeGestures: true,
