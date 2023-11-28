@@ -138,7 +138,7 @@ const stores = {
         postalCode: '81521',
         state: 'CO',
         link: 'https://goo.gl/maps/bSAV8y1zPkUCJdqN8',
-        website: 'https://monumentrvresort.com/index.html',
+        website: 'https://www.monumentrvresort.com/',
         property_type: 'RV Park/Campground',
       },
     },
