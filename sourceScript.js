@@ -178,7 +178,7 @@ const stores = {
         postalCode: '57785',
         state: 'SD',
         link: 'https://goo.gl/maps/npZqjYHVgWDcgnUM9',
-        website: 'https://www.bigrigrvpark.com/',
+        website: 'https://blackhillsvista.com/',
         property_type: 'RV Park/Campground',
       },
     },
