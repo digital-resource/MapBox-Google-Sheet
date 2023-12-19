@@ -171,7 +171,7 @@ const stores = {
       properties: {
         markerImage:
           'https://uploads-ssl.webflow.com/62a918d5906c9b3387503b6a/6303d5542a25834f9af59ed5_pin_11.png',
-        name: 'Big Rig RV Park',
+        name: 'Black Hills Vista',
         address: '3333 Dolan Creek Road, Sturgis, SD 57785',
         city: 'Sturgis',
         country: 'United States',
