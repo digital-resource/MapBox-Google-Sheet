@@ -891,7 +891,7 @@ const stores = {
         state: 'TX',
         link: 'https://goo.gl/maps/qn6H2a95PqAybYbD6',
         website:
-          'https://www.proselfstorage.com/3855-osage-lane-wylie-tx-75098',
+          'https://www.wylieboatandrvstorage.com/',
         property_type: 'Self Storage',
       },
     },
