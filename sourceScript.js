@@ -26,26 +26,6 @@ const stores = {
       type: 'Feature',
       geometry: {
         type: 'Point',
-        coordinates: [-93.3002, 36.58379],
-      },
-      properties: {
-        markerImage:
-          'https://uploads-ssl.webflow.com/62a918d5906c9b3387503b6a/6303d5542a25834f9af59ed5_pin_11.png',
-        name: 'Branson Stagecoach Campground',
-        address: '5751 MO-165, Branson, MO 65616',
-        city: 'Branson',
-        country: 'United States',
-        postalCode: '65616',
-        state: 'MO',
-        link: 'https://goo.gl/maps/mcZfML1t56jj14u59',
-        website: 'https://bransonstagecoach.com/',
-        property_type: 'RV Park/Campground',
-      },
-    },
-    {
-      type: 'Feature',
-      geometry: {
-        type: 'Point',
         coordinates: [-89.6481741, 43.7793827],
       },
       properties: {
