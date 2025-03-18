@@ -718,6 +718,86 @@ const stores = {
       type: 'Feature',
       geometry: {
         type: 'Point',
+        coordinates: [-100.73952144248092, 41.125181821012596],
+      },
+      properties: {
+        markerImage:
+          'https://uploads-ssl.webflow.com/62a918d5906c9b3387503b6a/6303bbeccdb661098652ce9f_pin_9.png',
+        name: 'East Philip Ave.',
+        address: '2020 E Philip Ave, North Platte, NE 69101',
+        city: 'North Platte',
+        country: 'United States',
+        postalCode: '69101',
+        state: 'NE',
+        link: 'https://maps.app.goo.gl/Fqpmn3kqSBc8ySjb8',
+        website: 'https://www.gostoreit.com/locations/nebraska/north-platte/heartland-self-storage-philip-ave/',
+        property_type: 'Self Storage',
+      },
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [-100.76697576229225, 41.10691357276792],
+      },
+      properties: {
+        markerImage:
+          'https://uploads-ssl.webflow.com/62a918d5906c9b3387503b6a/6303bbeccdb661098652ce9f_pin_9.png',
+        name: 'South Willow St.',
+        address: '3109 S Willow St, North Platte, NE 69101',
+        city: 'North Platte',
+        country: 'United States',
+        postalCode: '69101',
+        state: 'NE',
+        link: 'https://maps.app.goo.gl/s5sHbXep6xq7uPXV9',
+        website: 'https://www.gostoreit.com/locations/nebraska/north-platte/heartland-self-storage-s-willow-st/',
+        property_type: 'Self Storage',
+      },
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [-100.81057240337752, 41.140553929162216],
+      },
+      properties: {
+        markerImage:
+          'https://uploads-ssl.webflow.com/62a918d5906c9b3387503b6a/6303bbeccdb661098652ce9f_pin_9.png',
+        name: 'N. Lakeview Blvd.',
+        address: '214 N Lakeview Rd, North Platte, NE 69101',
+        city: 'North Platte',
+        country: 'United States',
+        postalCode: '69101',
+        state: 'NE',
+        link: 'https://maps.app.goo.gl/cNtWua3qMLYvF7Cm7',
+        website: 'https://www.gostoreit.com/locations/nebraska/north-platte/heartland-self-storage-lakeview/',
+        property_type: 'Self Storage',
+      },
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [-100.79069661685014, 41.14929853558155],
+      },
+      properties: {
+        markerImage:
+          'https://uploads-ssl.webflow.com/62a918d5906c9b3387503b6a/6303bbeccdb661098652ce9f_pin_9.png',
+        name: 'Rodeo Rd.',
+        address: '2505 W Rodeo Rd Ave, North Platte, NE 69101',
+        city: 'North Platte',
+        country: 'United States',
+        postalCode: '69101',
+        state: 'NE',
+        link: 'https://maps.app.goo.gl/TdYj3YsqT7A8VVRr5',
+        website: 'https://www.gostoreit.com/locations/nebraska/north-platte/heartland-self-storage-rodeo-rd/',
+        property_type: 'Self Storage',
+      },
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
         coordinates: [-93.8346002, 37.145154],
       },
       properties: {
