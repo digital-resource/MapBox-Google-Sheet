@@ -219,7 +219,7 @@ const stores = {
         postalCode: '60618',
         state: 'IL',
         link: 'https://goo.gl/maps/j1orYJeuVuXUNGjUA',
-        website: 'https://chicagonorthsidestorage.com/',
+        website: 'https://www.gostoreit.com/locations/illinois/chicago/chicago-northside-storage-lakeview/',
         property_type: 'Self Storage',
       },
     },
@@ -232,7 +232,7 @@ const stores = {
       properties: {
         markerImage:
           'https://uploads-ssl.webflow.com/62a918d5906c9b3387503b6a/6303bbeccdb661098652ce9f_pin_9.png',
-        name: 'Fruita - Monument Storage',
+        name: 'Heartland Storage - Fruita',
         address: '615 S. Mesa, Fruita, CO 81521',
         city: 'Fruita',
         country: 'United States',
@@ -259,7 +259,7 @@ const stores = {
         postalCode: '65616',
         state: 'MO',
         link: 'https://goo.gl/maps/STp4jDTDRgARLTRL9',
-        website: 'https://heartlandstorage.com/locations/mo-branson-bee-creek/',
+        website: 'https://www.gostoreit.com/locations/missouri/branson/heartland-storage-bee-creek/',
         property_type: 'Self Storage',
       },
     },
@@ -300,7 +300,7 @@ const stores = {
         state: 'MO',
         link: 'https://goo.gl/maps/FyDwqttxxWDXJ1kK6',
         website:
-          'https://heartlandstorage.com/locations/mo-branson-kirbyville/',
+          'https://www.gostoreit.com/locations/missouri/kirbyville/heartland-storage-kirbyville/',
         property_type: 'Self Storage',
       },
     },
@@ -321,7 +321,7 @@ const stores = {
         state: 'MO',
         link: 'https://goo.gl/maps/8e95vZ4pMLQESBDX6',
         website:
-          'https://heartlandstorage.com/locations/mo-branson-merriam-woods/',
+          'https://www.gostoreit.com/locations/missouri/merriam-woods/heartland-storage-merriam-woods/',
         property_type: 'Self Storage',
       },
     },
@@ -341,7 +341,7 @@ const stores = {
         postalCode: '65616',
         state: 'MO',
         link: 'https://goo.gl/maps/yeoyXUq6ArC4LJu79',
-        website: 'https://heartlandstorage.com/locations/mo-branson-t-highway/',
+        website: 'https://www.gostoreit.com/locations/missouri/branson/heartland-storage-t-highway/',
         property_type: 'Self Storage',
       },
     },
@@ -361,7 +361,7 @@ const stores = {
         postalCode: '65737',
         state: 'MO',
         link: 'https://goo.gl/maps/cAt48mpFPyKME8CF8',
-        website: 'https://heartlandstorage.com/locations/mo-branson-west/',
+        website: 'https://www.gostoreit.com/locations/missouri/branson/heartland-storage-branson-west/',
         property_type: 'Self Storage',
       },
     },
@@ -482,7 +482,7 @@ const stores = {
         state: 'MO',
         link: 'https://goo.gl/maps/iR2CZkrYJM6Dp2QGA',
         website:
-          'https://heartlandstorage.com/locations/mo-ozark-a-s-11th-street/',
+          'https://www.gostoreit.com/locations/missouri/ozark/heartland-storage-s-11th-street/',
         property_type: 'Self Storage',
       },
     },
@@ -503,7 +503,7 @@ const stores = {
         state: 'MO',
         link: 'https://goo.gl/maps/N6KPmDfidhQjFrDn7',
         website:
-          'https://heartlandstorage.com/locations/mo-ozark-b-3rd-street/',
+          'https://www.gostoreit.com/locations/missouri/ozark/heartland-storage-s-3rd-street/',
         property_type: 'Self Storage',
       },
     },
@@ -524,7 +524,7 @@ const stores = {
         state: 'MO',
         link: 'https://goo.gl/maps/zqmsjwzseq6ATamh7',
         website:
-          'https://heartlandstorage.com/locations/mo-ozark-n-23rd-street/',
+          'https://www.gostoreit.com/locations/missouri/ozark/heartland-storage-ozark/',
         property_type: 'Self Storage',
       },
     },
@@ -545,7 +545,7 @@ const stores = {
         state: 'MO',
         link: 'https://goo.gl/maps/v6vwicZRGXS9m71AA',
         website:
-          'https://heartlandstorage.com/locations/mo-ozark-d-n-2nd-street/',
+          'https://www.gostoreit.com/locations/missouri/ozark/heartland-storage-n-2nd-street/',
         property_type: 'Self Storage',
       },
     },
@@ -566,7 +566,7 @@ const stores = {
         state: 'MO',
         link: 'https://goo.gl/maps/8kPAeszEWXSai1HC9',
         website:
-          'https://heartlandstorage.com/locations/mo-ozark-e-21st-street/',
+          'https://www.gostoreit.com/locations/missouri/ozark/heartland-storage-n-21st-street/',
         property_type: 'Self Storage',
       },
     },
@@ -608,7 +608,7 @@ const stores = {
         state: 'MO',
         link: 'https://goo.gl/maps/v3oGFprZB6Zs11wQ8',
         website:
-          'https://heartlandstorage.com/locations/mo-ozark-n-10th-street/',
+          'https://www.gostoreit.com/locations/missouri/ozark/heartland-storage-n-10th-street/',
         property_type: 'Self Storage',
       },
     },
@@ -629,7 +629,7 @@ const stores = {
         state: 'MO',
         link: 'https://goo.gl/maps/LrmtPmAS3G7P91m6A',
         website:
-          'https://heartlandstorage.com/locations/mo-ozark-n-10th-street/',
+          'https://www.gostoreit.com/locations/missouri/ozark/heartland-storage-w-clay-street/',
         property_type: 'Self Storage',
       },
     },
@@ -650,7 +650,7 @@ const stores = {
         state: 'MI',
         link: 'https://goo.gl/maps/Qf21hoK27MEuK2Vp7',
         website:
-          'https://heartlandstorage.com/locations/mo-ozark-n-10th-street/',
+          'https://www.gostoreit.com/locations/michigan/sturgis/heartland-storage-sturgis-us-12/',
         property_type: 'Self Storage',
       },
     },
@@ -670,7 +670,7 @@ const stores = {
         postalCode: '49091',
         state: 'MI',
         link: 'https://goo.gl/maps/gL9VK9Ft2fsxAgEw9',
-        website: 'https://heartlandstorage.com/locations/mi-sturgis-b/',
+        website: 'https://www.gostoreit.com/locations/michigan/sturgis/heartland-storage-white-school-rd/',
         property_type: 'Self Storage',
       },
     },
@@ -690,7 +690,7 @@ const stores = {
         postalCode: '65355',
         state: 'MO',
         link: 'https://goo.gl/maps/7ufk3BGjrEiBbkua6',
-        website: 'https://heartlandstorage.com/locations/mo-warsaw/',
+        website: 'https://www.gostoreit.com/locations/missouri/warsaw/heartland-storage-warsaw/',
         property_type: 'Self Storage',
       },
     },
@@ -710,7 +710,7 @@ const stores = {
         postalCode: '69146',
         state: 'NE',
         link: 'https://goo.gl/maps/a4CFo68qvDdEgNze6',
-        website: 'https://www.lakemacstorage.com/',
+        website: 'https://www.gostoreit.com/locations/nebraska/lemoyne/lake-mac-storage/',
         property_type: 'Self Storage',
       },
     },
@@ -723,7 +723,7 @@ const stores = {
       properties: {
         markerImage:
           'https://uploads-ssl.webflow.com/62a918d5906c9b3387503b6a/6303bbeccdb661098652ce9f_pin_9.png',
-        name: 'East Philip Ave.',
+        name: 'Heartland Storage – Philip Ave',
         address: '2020 E Philip Ave, North Platte, NE 69101',
         city: 'North Platte',
         country: 'United States',
@@ -743,7 +743,7 @@ const stores = {
       properties: {
         markerImage:
           'https://uploads-ssl.webflow.com/62a918d5906c9b3387503b6a/6303bbeccdb661098652ce9f_pin_9.png',
-        name: 'South Willow St.',
+        name: 'Heartland Storage – S Willow St',
         address: '3109 S Willow St, North Platte, NE 69101',
         city: 'North Platte',
         country: 'United States',
@@ -763,7 +763,7 @@ const stores = {
       properties: {
         markerImage:
           'https://uploads-ssl.webflow.com/62a918d5906c9b3387503b6a/6303bbeccdb661098652ce9f_pin_9.png',
-        name: 'N. Lakeview Blvd.',
+        name: 'Heartland Storage – Lakeview',
         address: '214 N Lakeview Rd, North Platte, NE 69101',
         city: 'North Platte',
         country: 'United States',
@@ -783,7 +783,7 @@ const stores = {
       properties: {
         markerImage:
           'https://uploads-ssl.webflow.com/62a918d5906c9b3387503b6a/6303bbeccdb661098652ce9f_pin_9.png',
-        name: 'Rodeo Rd.',
+        name: 'Heartland Storage – Rodeo Rd',
         address: '2505 W Rodeo Rd Ave, North Platte, NE 69101',
         city: 'North Platte',
         country: 'United States',
@@ -803,14 +803,14 @@ const stores = {
       properties: {
         markerImage:
           'https://uploads-ssl.webflow.com/62a918d5906c9b3387503b6a/6303bbeccdb661098652ce9f_pin_9.png',
-        name: 'Lawrence County (A) - Mt Vernon',
+        name: 'Heartland Storage - Mt Vernon (North)',
         address: '12315 State Hwy OO, Mt. Vernon, Missouri 65712',
         city: 'Mt. Vernon',
         country: 'United States',
         postalCode: '65712',
         state: 'MO',
         link: 'https://goo.gl/maps/u5g35621y82cTXqQ7',
-        website: 'https://heartlandstorage.com/locations/mo-lawrence-county-a/',
+        website: 'https://www.gostoreit.com/locations/missouri/mt-vernon/heartland-storage-lawrence-state-street/',
         property_type: 'Self Storage',
       },
     },
@@ -823,14 +823,14 @@ const stores = {
       properties: {
         markerImage:
           'https://uploads-ssl.webflow.com/62a918d5906c9b3387503b6a/6303bbeccdb661098652ce9f_pin_9.png',
-        name: 'Lawrence County (R) - Mt Vernon',
+        name: 'Heartland Storage - Mt Vernon (South)',
         address: '14984 Co Rd 2140, Mt Vernon, Missouri 65712',
         city: 'Mt. Vernon',
         country: 'United States',
         postalCode: '65712',
         state: 'MO',
         link: 'https://goo.gl/maps/dMxWwqqUGbAAhjRz8',
-        website: 'https://heartlandstorage.com/locations/mo-lawrence-county-r/',
+        website: 'https://www.gostoreit.com/locations/missouri/mt-vernon/heartland-storage-mt-vernon/',
         property_type: 'Self Storage',
       },
     },
@@ -843,14 +843,14 @@ const stores = {
       properties: {
         markerImage:
           'https://uploads-ssl.webflow.com/62a918d5906c9b3387503b6a/6303bbeccdb661098652ce9f_pin_9.png',
-        name: 'Lawrence County (T) - Verona',
+        name: 'Heartland Storage - Verona',
         address: '22529 Lawrence 1160 Verona, Missouri 65769',
         city: 'Verona',
         country: 'United States',
         postalCode: '65769',
         state: 'MO',
         link: 'https://goo.gl/maps/p9fKfuAikWq8QFPe9',
-        website: 'https://heartlandstorage.com/locations/mo-lawrence-county-t/',
+        website: 'https://www.gostoreit.com/locations/missouri/verona/heartland-storage-lawrence/',
         property_type: 'Self Storage',
       },
     },
@@ -883,14 +883,14 @@ const stores = {
       properties: {
         markerImage:
           'https://uploads-ssl.webflow.com/62a918d5906c9b3387503b6a/6303bbeccdb661098652ce9f_pin_9.png',
-        name: 'Lockwood Miller (H) - Lockwood',
+        name: 'Lockwood Miller - Lockwood',
         address: '208 E 4th St, Lockwood, Missouri 65682',
         city: 'Lockwood',
         country: 'United States',
         postalCode: '65682',
         state: 'MO',
         link: 'https://goo.gl/maps/9pa97uNnQmnBj7zi8',
-        website: 'https://heartlandstorage.com/locations/mo-lockwood-miller-h/',
+        website: 'https://www.gostoreit.com/locations/missouri/lockwood/heartland-storage-4th-street/',
         property_type: 'Self Storage',
       },
     },
@@ -910,7 +910,7 @@ const stores = {
         postalCode: '18651',
         state: 'PA',
         link: 'https://goo.gl/maps/MBDiGw5FXb89XJYq6',
-        website: 'https://heartlandstorage.com/locations/pa-plymouth/',
+        website: 'https://www.gostoreit.com/locations/new-york/rochester/rochester-storage/',
         property_type: 'Self Storage',
       },
     },
@@ -930,7 +930,7 @@ const stores = {
         postalCode: '14605',
         state: 'NY',
         link: 'https://goo.gl/maps/4hXc6rKMvY4Dnfzm8',
-        website: 'https://heartlandstorage.com/locations/ny-rochester/',
+        website: 'https://www.gostoreit.com/locations/new-york/rochester/rochester-storage/',
         property_type: 'Self Storage',
       },
     },
@@ -952,6 +952,107 @@ const stores = {
         link: 'https://goo.gl/maps/qn6H2a95PqAybYbD6',
         website:
           'https://www.wylieboatandrvstorage.com/',
+        property_type: 'Self Storage',
+      },
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [-85.52674568290323, 41.794903938041855],
+      },
+      properties: {
+        markerImage:
+          'https://uploads-ssl.webflow.com/62a918d5906c9b3387503b6a/6303bbeccdb661098652ce9f_pin_9.png',
+        name: 'Heartland Storage - Klinger Lake',
+        address: '69004 Klinger Lake Road, Sturgis, Michigan 49091',
+        city: 'Sturgis',
+        country: 'United States',
+        postalCode: '49091',
+        state: 'MI',
+        link: 'https://maps.app.goo.gl/N7UjGNeAgsiFzUTx7',
+        website:
+          'https://www.gostoreit.com/locations/michigan/sturgis/heartland-storage-klinger-lake/',
+        property_type: 'Self Storage',
+      },
+    },{
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [-86.83854221616596, 41.68932450182665],
+      },
+      properties: {
+        markerImage:
+          'https://uploads-ssl.webflow.com/62a918d5906c9b3387503b6a/6303bbeccdb661098652ce9f_pin_9.png',
+        name: 'Heartland Storage - Michigan City',
+        address: '7176 W. U.S. Highway 20, Michigan City, IN 46360',
+        city: 'Michigan City',
+        country: 'United States',
+        postalCode: '46360',
+        state: 'IN',
+        link: 'https://maps.app.goo.gl/V6qVjRYgE8fmhDZf6',
+        website:
+          'https://www.heartlandstorage.com/locations/in-michigan-city',
+        property_type: 'Self Storage',
+      },
+    },{
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [-93.09612261372598, 36.668539989902],
+      },
+      properties: {
+        markerImage:
+          'https://uploads-ssl.webflow.com/62a918d5906c9b3387503b6a/6303bbeccdb661098652ce9f_pin_9.png',
+        name: 'Heartland Storage - Branson (Forsyth)',
+        address: '10772 State Highway 76 , Forsyth, MO 65653',
+        city: 'Forsyth',
+        country: 'United States',
+        postalCode: '65653',
+        state: 'MO',
+        link: 'https://maps.app.goo.gl/Q77FJUoBx5KVRX1U7',
+        website:
+          'https://www.gostoreit.com/locations/missouri/forsyth/heartland-storage-forsyth/',
+        property_type: 'Self Storage',
+      },
+    },{
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [-93.20035268858886, 37.00377951260892],
+      },
+      properties: {
+        markerImage:
+          'https://uploads-ssl.webflow.com/62a918d5906c9b3387503b6a/6303bbeccdb661098652ce9f_pin_9.png',
+        name: 'Heartland Storage - Ozark F',
+        address: '720 E. South Street, Ozark, MO 65721',
+        city: 'Ozark',
+        country: 'United States',
+        postalCode: '65721',
+        state: 'MO',
+        link: 'https://maps.app.goo.gl/effUY9yF9aYadwbw5',
+        website:
+          'https://www.gostoreit.com/locations/missouri/ozark/heartland-storage-e-south-st/',
+        property_type: 'Self Storage',
+      },
+    },{
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [-93.28699333092871, 36.560921296266194],
+      },
+      properties: {
+        markerImage:
+          'https://uploads-ssl.webflow.com/62a918d5906c9b3387503b6a/6303bbeccdb661098652ce9f_pin_9.png',
+        name: 'Heartland Storage - Clevenger Cove',
+        address: '190 Poolside Pass, Hollister, Missouri 65672',
+        city: 'Hollister',
+        country: 'United States',
+        postalCode: '65672',
+        state: 'MO',
+        link: 'https://maps.app.goo.gl/YA5Dv4JTZiYPpXQD7',
+        website:
+          'https://www.gostoreit.com/locations/missouri/hollister/heartland-storage-clevenger-cove/',
         property_type: 'Self Storage',
       },
     },
