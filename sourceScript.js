@@ -934,27 +934,27 @@ const stores = {
         property_type: 'Self Storage',
       },
     },
-    {
-      type: 'Feature',
-      geometry: {
-        type: 'Point',
-        coordinates: [-96.5679544, 33.0604876],
-      },
-      properties: {
-        markerImage:
-          'https://uploads-ssl.webflow.com/62a918d5906c9b3387503b6a/6303bbeccdb661098652ce9f_pin_9.png',
-        name: 'Wylie Boat & RV Storage',
-        address: '3855 Osage Ln, Wylie, TX 75098',
-        city: 'Wylie',
-        country: 'United States',
-        postalCode: '75098',
-        state: 'TX',
-        link: 'https://goo.gl/maps/qn6H2a95PqAybYbD6',
-        website:
-          'https://www.wylieboatandrvstorage.com/',
-        property_type: 'Self Storage',
-      },
-    },
+    // {
+    //   type: 'Feature',
+    //   geometry: {
+    //     type: 'Point',
+    //     coordinates: [-96.5679544, 33.0604876],
+    //   },
+    //   properties: {
+    //     markerImage:
+    //       'https://uploads-ssl.webflow.com/62a918d5906c9b3387503b6a/6303bbeccdb661098652ce9f_pin_9.png',
+    //     name: 'Wylie Boat & RV Storage',
+    //     address: '3855 Osage Ln, Wylie, TX 75098',
+    //     city: 'Wylie',
+    //     country: 'United States',
+    //     postalCode: '75098',
+    //     state: 'TX',
+    //     link: 'https://goo.gl/maps/qn6H2a95PqAybYbD6',
+    //     website:
+    //       'https://www.wylieboatandrvstorage.com/',
+    //     property_type: 'Self Storage',
+    //   },
+    // },
     {
       type: 'Feature',
       geometry: {
