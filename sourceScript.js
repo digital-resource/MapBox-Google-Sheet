@@ -187,6 +187,46 @@ const stores = {
       type: 'Feature',
       geometry: {
         type: 'Point',
+        coordinates: [33.3357932,-86.796551],
+      },
+      properties: {
+        markerImage:
+          'https://uploads-ssl.webflow.com/62a918d5906c9b3387503b6a/6303bbeccdb661098652ce9f_pin_9.png',
+        name: 'Heartland Storage - Pelham',
+        address: '111 Hilltop Business Drive Pelham, AL 35124',
+        city: 'Pelham',
+        country: 'United States',
+        postalCode: '35124',
+        state: 'AL',
+        link: 'https://maps.app.goo.gl/6gopQGMoh7hj4i237',
+        website: 'https://www.hancapitalgroup.com/our-portfolio/heartland-storage',
+        property_type: 'Self Storage',
+      },
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [33.2712867,-86.8557373],
+      },
+      properties: {
+        markerImage:
+          'https://uploads-ssl.webflow.com/62a918d5906c9b3387503b6a/6303bbeccdb661098652ce9f_pin_9.png',
+        name: 'Heartland Storage - Helena',
+        address: '5324 Hwy 17 South, Helena, AL 35080',
+        city: 'Helena',
+        country: 'United States',
+        postalCode: '35080',
+        state: 'AL',
+        link: 'https://maps.app.goo.gl/1boNe3hdb9yTogNcA',
+        website: 'https://www.hancapitalgroup.com/our-portfolio/heartland-storage',
+        property_type: 'Self Storage',
+      },
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
         coordinates: [-93.2907819, 36.5632802],
       },
       properties: {
