@@ -187,7 +187,7 @@ const stores = {
       type: 'Feature',
       geometry: {
         type: 'Point',
-        coordinates: [33.3357932,-86.796551],
+        coordinates: [-86.7943194, 33.3359142],
       },
       properties: {
         markerImage:
@@ -199,7 +199,7 @@ const stores = {
         postalCode: '35124',
         state: 'AL',
         link: 'https://maps.app.goo.gl/6gopQGMoh7hj4i237',
-        website: 'https://www.hancapitalgroup.com/our-portfolio/heartland-storage',
+        website: 'https://www.gostoreit.com/locations/alabama/pelham/heartland-pelham/',
         property_type: 'Self Storage',
       },
     },
@@ -207,7 +207,7 @@ const stores = {
       type: 'Feature',
       geometry: {
         type: 'Point',
-        coordinates: [33.2712867,-86.8557373],
+        coordinates: [-86.8531687, 33.2713023],
       },
       properties: {
         markerImage:
@@ -219,7 +219,7 @@ const stores = {
         postalCode: '35080',
         state: 'AL',
         link: 'https://maps.app.goo.gl/1boNe3hdb9yTogNcA',
-        website: 'https://www.hancapitalgroup.com/our-portfolio/heartland-storage',
+        website: 'https://www.gostoreit.com/locations/alabama/helena/heartland-helena/',
         property_type: 'Self Storage',
       },
     },
